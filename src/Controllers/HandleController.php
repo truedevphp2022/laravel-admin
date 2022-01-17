@@ -91,6 +91,8 @@ class HandleController extends Controller
                 ...$this->resolveActionArgs($request, ...$arguments)
             );
         } catch (Exception $exception) {
+            Log::debug('ошибка в админке');
+            Log::debug(print_r($exception,true));
             return Response::withException($exception)->send();
         }
 
